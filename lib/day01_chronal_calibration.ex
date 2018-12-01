@@ -1,8 +1,7 @@
 defmodule ChronalCalibration do
-
   def read(file) do
     File.stream!(file)
-    |> Enum.join
+    |> Enum.join()
   end
 
   def to_int(calibrations) do
@@ -14,13 +13,13 @@ defmodule ChronalCalibration do
   def apply(calibrations) do
     calibrations
     |> to_int
-    |> Enum.sum
+    |> Enum.sum()
   end
 
   def repeated(calibrations) do
     calibrations
     |> to_int
-    |> Stream.cycle
+    |> Stream.cycle()
     |> Enum.reduce_while([0], &find_repeated_frequency/2)
   end
 
@@ -41,5 +40,4 @@ defmodule ChronalCalibration do
   def is_repeated(frequency, frequencies) do
     Enum.member?(frequencies, frequency)
   end
-
 end
