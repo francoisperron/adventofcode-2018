@@ -10,8 +10,8 @@ defmodule InventoryManagementSystemTest do
     test "solves it" do
       checksum =
         "day02/data"
-        |> DataFile.read_lines
-        |> InventoryManagementSystem.checksum
+        |> DataFile.read_lines()
+        |> InventoryManagementSystem.checksum()
 
       assert checksum === 7221
     end
@@ -19,16 +19,15 @@ defmodule InventoryManagementSystemTest do
 
   describe "part 2" do
     test "count diff between two ids" do
-      assert InventoryManagementSystem.count_diff("abcbe", "axcye") === {2, "ace" }
-      assert InventoryManagementSystem.count_diff("fghij", "fguij") === {1,  "fgij"}
-      assert InventoryManagementSystem.count_diff("abcde", "fghij") === {5,  ""}
-      assert InventoryManagementSystem.count_diff("nkuagflethzwsijxrqvymbdpoq", "wkucgflathznsijqrevymbdpoq") === {6,  "kugflthzsijqvymbdpoq"}
+      assert InventoryManagementSystem.count_diff("abcbe", "axcye") === {2, "ace"}
+      assert InventoryManagementSystem.count_diff("fghij", "fguij") === {1, "fgij"}
+      assert InventoryManagementSystem.count_diff("abcde", "fghij") === {5, ""}
     end
 
     test "solves example data" do
       id =
-        ["abcde","fghij","klmno","pqrst","fguij","axcye","wvxyz"]
-        |> InventoryManagementSystem.closest_id
+        ["abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"]
+        |> InventoryManagementSystem.closest_id()
 
       assert id === "fgij"
     end
@@ -36,8 +35,8 @@ defmodule InventoryManagementSystemTest do
     test "solves it" do
       id =
         "day02/data"
-        |> DataFile.read_lines
-        |> InventoryManagementSystem.closest_id
+        |> DataFile.read_lines()
+        |> InventoryManagementSystem.closest_id()
 
       assert id === "mkcdflathzwsvjxrevymbdpoq"
     end
