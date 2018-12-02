@@ -9,7 +9,7 @@ defmodule InventoryManagementSystemTest do
 
     test "solves it" do
       checksum =
-        "day02_data"
+        "day02/data"
         |> DataFile.read_lines
         |> InventoryManagementSystem.checksum
 
@@ -35,7 +35,7 @@ defmodule InventoryManagementSystemTest do
 
     test "solves it" do
       id =
-        "day02_data"
+        "day02/data"
         |> DataFile.read_lines
         |> InventoryManagementSystem.closest_id
 

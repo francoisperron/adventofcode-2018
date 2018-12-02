@@ -23,7 +23,7 @@ defmodule InventoryManagementSystem do
     Enum.reduce_while(
       ids,
       nil,
-      fn id1, acc ->
+      fn id1, _ ->
         diff = find_id_with_one_diff(id1, ids)
         if (elem(diff, 0) == 1) do
           {:halt, elem(diff, 1)}
