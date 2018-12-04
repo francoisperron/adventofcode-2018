@@ -1,15 +1,4 @@
 defmodule ChronalCalibration do
-  def read(file) do
-    File.stream!(file)
-    |> Enum.join()
-  end
-
-  def to_int(calibrations) do
-    calibrations
-    |> String.split("\n")
-    |> Enum.map(&String.to_integer/1)
-  end
-
   def apply(calibrations) do
     calibrations
     |> to_int
@@ -21,6 +10,11 @@ defmodule ChronalCalibration do
     |> to_int
     |> Stream.cycle()
     |> Enum.reduce_while([0], &find_repeated_frequency/2)
+  end
+
+  def to_int(calibrations) do
+    calibrations
+    |> Enum.map(&String.to_integer/1)
   end
 
   def find_repeated_frequency(calibration, frequencies) do

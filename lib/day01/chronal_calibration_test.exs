@@ -3,16 +3,16 @@ defmodule ChronalCalibrationTest do
 
   describe "part 1" do
     test "calibrates using one calibration" do
-      assert ChronalCalibration.apply("+1") == 1
-      assert ChronalCalibration.apply("-1") == -1
+      assert ChronalCalibration.apply(["+1"]) == 1
+      assert ChronalCalibration.apply(["-1"]) == -1
     end
 
     test "calibrates with multiple calibrations" do
-      assert ChronalCalibration.apply("+1\n-4") == -3
+      assert ChronalCalibration.apply(["+1", "-4"]) == -3
     end
 
     test "solves it" do
-      assert ChronalCalibration.read("lib/day01/data") |> ChronalCalibration.apply() === 459
+      assert DataFile.read_lines("day01/data") |> ChronalCalibration.apply() === 459
     end
   end
 
@@ -28,14 +28,14 @@ defmodule ChronalCalibrationTest do
     end
 
     test "finds first repeated frequency" do
-      assert ChronalCalibration.repeated("+1\n-1") === 0
-      assert ChronalCalibration.repeated("3\n+3\n+4\n-2\n-4") === 10
-      assert ChronalCalibration.repeated("-6\n+3\n+8\n+5\n-6") === 5
+      assert ChronalCalibration.repeated(["+1", "-1"]) === 0
+      assert ChronalCalibration.repeated(["+3", "+3", "+4", "-2", "-4"]) === 10
+      assert ChronalCalibration.repeated(["-6", "+3", "+8", "+5", "-6"]) === 5
     end
 
-    #    too long :(
+    # too long :(
     #    test "solves it" do
-    #      assert ChronalCalibration.read("lib/day01/data") |> ChronalCalibration.repeated === 65474
+    #      assert DataFile.read_lines("day01/data") |> ChronalCalibration.repeated === 65474
     #    end
   end
 end
