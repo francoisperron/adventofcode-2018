@@ -44,7 +44,6 @@ defmodule ReposeRecordTest do
                ]
     end
 
-
     test "finds guard asleep the most" do
       assert ReposeRecord.find_guard_asleep_the_most(test_data()) === 10
     end
@@ -73,5 +72,4 @@ defmodule ReposeRecordTest do
       assert ReposeRecord.find_guard_asleep_the_most_on_the_same_minute(data) === 58559
     end
   end
-
 end
